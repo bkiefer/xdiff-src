@@ -1,0 +1,14 @@
+*~
+*.o
+.deps
+aclocal.m4
+autom4te.cache
+aux-build
+config.*
+configure
+Makefile
+Makefile.in
+stamp-h1
+xdiff
+xdiff-config.h
+xdiff-config.h.in

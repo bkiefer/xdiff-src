@@ -1,8 +1,8 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.67])
-AC_INIT([xdiff], [0.9.6], [yuanwang@cs.wisc.edu])
+AC_PREREQ([2.72])
+AC_INIT([xdiff],[0.9.7],[yuanwang@cs.wisc.edu, bernd.kiefer@dfki.de])
 AC_CONFIG_SRCDIR([xdiff-config.h.in])
 AC_CONFIG_HEADERS([xdiff-config.h])
 AC_CONFIG_AUX_DIR([aux-build])
@@ -50,27 +50,12 @@ savedLIBS=$LIBS
 unset XDIFFCPPFLAGS XDIFFCXXFLAGS XDIFFLDFLAGS XDIFFLIBS
 
 # --------------------------------------------------------------------
-# IBM ICU library.
-# --------------------------------------------------------------------
-
-AX_LIB_ICU([],
-  [
-    icu=yes
-    export XDIFFCPPFLAGS="$ICU_CPPFLAGS_SEARCHPATH $XDIFFCPPFLAGS"
-    export XDIFFLDFLAGS="$ICU_LDFLAGS_SEARCHPATH $XDIFFLDFLAGS"
-    export XDIFFLIBS="$ICU_LIBS $XDIFFLIBS"
-  ],
-  [icu=no])
-AM_CONDITIONAL(ICU, [test "x$icu" = "xyes"])
-
-# --------------------------------------------------------------------
 # XML support, i.e. Xerces C++ library.
 # --------------------------------------------------------------------
 
 XERCESCDIR=""
 AC_ARG_WITH(xml,
-  [AC_HELP_STRING([--with-xml@<:@=ARG@:>@],
-    [use Xerces C++ library from a standard location (ARG=yes),
+  [AS_HELP_STRING([--with-xml@<:@=ARG@:>@],[use Xerces C++ library from a standard location (ARG=yes),
      from the specified location (ARG=<path>),
      or disable it (ARG=no).
      @<:@ARG=no@:>@ ])],

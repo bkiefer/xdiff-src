@@ -677,9 +677,8 @@ void XDiff::matchList(int *nodes1, int *nodes2, int count1, int count2,
     for (int i = 0; ((i < _sampleCount) && (scount2 < count2)); scount2++) {
       srand(_seed);
       _seed = rand();
-      int snode =
-          (int)((long long)_seed * (count2 - scount2) / (RAND_MAX + 1)) +
-          scount2;
+      int snode = (int)((long long)_seed * (count2 - scount2)
+                        / (((long)RAND_MAX) + 1)) + scount2;
       int dist = XTree::NO_CONNECTION;
       int bestmatch = XTree::NULL_NODE;
       for (int j = scount1; j < count1; j++) {
