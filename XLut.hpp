@@ -68,6 +68,6 @@ public:
 
 private:
   bool _possibleConflict, _conflict;
-  hash_map<unsigned int, unsigned long long> _xTable;
+  unordered_map<unsigned int, unsigned long long> _xTable;
 };
 #endif

@@ -38,17 +38,20 @@
 #ifndef __XTREE__
 #define __XTREE__
 
-#include <hash_map>
+#include <unordered_map>
 #include <iostream>
 #include <string>
 #include <vector>
 
 using namespace __gnu_cxx;
+using std::string;
+using std::vector;
+using std::unordered_map;
 
 class HashString {
 public:
   bool operator()(string const &str) const {
-    return hash<char const *>()(str.c_str());
+    return std::hash<char const *>()(str.c_str());
   }
 };
 
@@ -179,8 +182,8 @@ private:
   bool **_isAttribute;
   unsigned long long **_hashValue;
   string **_value;
-  hash_map<string, int, HashString> _tagNames;
-  hash_map<int, vector<size_t>> _cdataTable;
+  unordered_map<string, int, HashString> _tagNames;
+  unordered_map<int, vector<size_t>> _cdataTable;
 
   void _initialize();
   void _expand(int topid);
