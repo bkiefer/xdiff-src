@@ -22,7 +22,7 @@ Efficient Change Detection Algorithm for XML Documents", ICDE 2003.
 Installation
 ------------
 
-    git clone
+    git clone git@github.com:bkiefer/xdiff-src.git
     cd xdiff-scr
     autoreconf -i
     make
@@ -39,9 +39,7 @@ The default mode is "-o -p 0.3".
 | option |                                                                                                                    |
 |--------|--------------------------------------------------------------------------------------------------------------------|
 | -o     | The optimal mode, to get the diff result with minimum editing distance.                                            |
-|        |                                                                                                                    |
 | -g     | The greedy mode, to get a diff result quickly, the result may not be "optimal".                                    |
-|        |                                                                                                                    |
 | -p     | The maximum change percentage allowed. X-Diff will not try to match nodes that are much different from each other. |
 
 
